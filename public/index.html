@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>The Solar Sign - Image Editor Advance</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <!-- <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" /> -->
+    <link rel="shortcut icon" href="./assets/lofo.png" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link href="css/select2.css" rel="stylesheet" type="text/css" />
+    <link href="css/spectrum.css" rel="stylesheet" type="text/css" />
+    <link href="css/ruler.css" rel="stylesheet" type="text/css" />
+    <link href="css/toastr.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link
+      id="palleon-theme-link"
+      href="css/dark.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- <link
+      id="palleon-theme-link"
+      href="css/light.css"
+      rel="stylesheet"
+      type="text/css"
+    /> -->
+  </head>
+  <body id="palleon" class="backend">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!-- <div id="root"></div> -->
+  </body>
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/jquery-ui.min.js"></script>
+  <script src="./js/fabric.min.js"></script>
+  <script src="./js/plugins.min.js"></script>
+  <script src="./js/palleon.min.js"></script>
+  <!-- Canvas Ruler -->
+  <script type="text/javascript">
+    if (document.body.clientWidth >= 1200) {
+      var evt = new Event("palleon-ruler"),
+        dragdrop = new Dragdrop(evt),
+        rg = new RulersGuides(
+          evt,
+          dragdrop,
+          document.getElementById("palleon-ruler")
+        );
+    }
+  </script>
+  <script src="./js/custom.js"></script>
+  <!-- Translation Strings -->
+  <script>
+    /* <![CDATA[ */
+    var palleonParams = {
+      textbox: "Enter Your Text Here",
+      object: "Object",
+      loading: "Loading...",
+      loadmore: "Load More",
+      saved: "Saved!",
+      imgsaved: "Image is saved.",
+      tempsaved: "Template is saved.",
+      freeDrawing: "Free drawing",
+      frame: "Frame",
+      image: "Image",
+      circle: "Circle",
+      square: "Square",
+      rectangle: "Rectangle",
+      triangle: "Triangle",
+      ellipse: "Ellipse",
+      trapezoid: "Trapezoid",
+      pentagon: "Pentagon",
+      octagon: "Octagon",
+      emerald: "Emerald",
+      star: "Star",
+      element: "Element",
+      customSvg: "Custom SVG",
+      success: "Success",
+      error: "Error",
+      delete: "Delete",
+      duplicate: "Duplicate",
+      showhide: "Show/Hide",
+      lockunlock: "Lock/Unlock",
+      text: "Text",
+      started: "Editing started.",
+      added: "added.",
+      removed: "removed.",
+      resized: "resized.",
+      edited: "edited.",
+      replaced: "replaced.",
+      rotated: "rotated.",
+      moved: "moved.",
+      scaled: "scaled.",
+      flipped: "flipped.",
+      cropped: "cropped.",
+      bg: "Canvas",
+      filter: "filter",
+      showRulers: "Show rulers",
+      hideRulers: "Hide rulers",
+      showGuides: "Show guides",
+      hideGuides: "Hide guides",
+      clearAllGuides: "Clear all guides",
+      question1: "Are you sure you want clear the history?",
+      question2: "Are you sure you want to delete the layers?",
+      question3: "Are you sure you want to crop the image?",
+      question4: "Are you sure you want to resize the image?",
+      noDuplicate:
+        "You can not duplicate multiple objects. Please select single object to duplicate.",
+      warning: "Warning",
+      qrCode: "QR Code",
+      startDrawing: "Start Drawing",
+      stopDrawing: "Stop Drawing",
+      erased: "Pixels erased.",
+    };
+    /* ]]> */
+  </script>
+</html>
