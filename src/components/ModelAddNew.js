@@ -4,6 +4,10 @@ import axios from "axios";
 
 function ModelAddNew() {
   const [template, setTemplate] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("all");
+
+
+
 
   useEffect(() => {
     const fetch = async () => {
@@ -19,7 +23,14 @@ function ModelAddNew() {
 
     fetch();
   }, []);
-  console.log(template);
+
+  const handleCategoryChange = (event) => {
+    console.log(event.target.value);
+    setSelectedCategory(event.target.value);
+  };
+  console.log(selectedCategory);
+
+  // console.log(template);
 
   return (
     <>
@@ -109,15 +120,15 @@ function ModelAddNew() {
               <div id="modal-template-library" class="palleon-tab active">
                 <div class="palleon-templates-wrap">
                   <div class="palleon-tabs">
-                    <ul class="palleon-tabs-menu">
-                      <li class="active" data-target="#palleon-all-templates">
+                    {/* <ul class="palleon-tabs-menu"> */}
+                    {/* <li class="active" data-target="#palleon-all-templates">
                         All
-                      </li>
-                      {/**  <li data-target="#palleon-templates-favorites">
+                      </li> */}
+                    {/**  <li data-target="#palleon-templates-favorites">
                         My Favorites
                       </li>
                       <li data-target="#palleon-mytemplates">My Templates</li> */}
-                    </ul>
+                    {/* </ul> */}
 
                     <div id="palleon-all-templates" class="palleon-tab active">
                       <div class="palleon-templates-menu-wrap">
@@ -129,15 +140,26 @@ function ModelAddNew() {
                           autocomplete="off"
                         />
                         <select
-                          id="palleon-templates-menu"
-                          class="palleon-select palleon-select2"
-                          autocomplete="off"
+                          // id="palleon-templates-menu"
+                          // class="palleon-select palleon-select2"
+
+                          class="palleon-select "
+                          autoComplete="off"
+                          onChange={handleCategoryChange}
+                          value={selectedCategory}
                         >
-                          <option value="all" selected>
-                            All Categories (44)
+                          <option value="all">
+                            All Categories
                           </option>
-                          <option value="blog-banners">Blog Banners (8)</option>
-                          <option value="banner-ads">Banner Ads (15)</option>
+                          {
+                            template && template.map((item, index) => {
+                              return (
+
+                                <option key={index} value={item.categoryName}>{item.categoryName}</option>
+                              )
+                            })
+                          }
+                          {/* <option value="banner-ads">Banner Ads (15)</option>
                           <option value="collage">Collage (7)</option>
                           <option value="quote">Quote (5)</option>
                           <option value="medium-rectangle">
@@ -157,7 +179,7 @@ function ModelAddNew() {
                           <option value="twitter-post">Twitter Post (3)</option>
                           <option value="youtube-thumbnail">
                             Youtube Thumbnail (2)
-                          </option>
+                          </option> */}
                         </select>
                         <button
                           id="palleon-template-search"
@@ -178,17 +200,20 @@ function ModelAddNew() {
                           <div
                             id="palleon-templates-grid"
                             class="palleon-grid template-grid template-selection paginated"
+                            // class="palleon-grid template-grid paginated"
                             data-perpage="21"
                           >
-                            {template.map((item, index) => {
-                              return (
-                                <TemplateCard
-                                  key={index}
-                                  item={item}
-                                  index={index}
-                                />
-                              );
-                            })}
+                            {template
+                              .filter((item) => selectedCategory === 'all' || item.categoryName === selectedCategory)
+                              .map((item, index) => {
+                                return (
+                                  <TemplateCard
+                                    key={index}
+                                    item={item}
+                                    index={index}
+                                  />
+                                );
+                              })}
                           </div>
                         </div>
                       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 
 function TemplateCard({ index, item }) {
-  console.log(item);
+  // console.log(item);
   return (
     <>
       <div
